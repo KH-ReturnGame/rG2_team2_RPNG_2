@@ -510,6 +510,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rollButton: {fileID: 96780451}
   resultText: {fileID: 844544360}
+  Common: 35.5
+  Uncommon: 30
+  Rare: 20
+  Epic: 14
+  Legendary: 0.4
+  Mythic: 0.09
+  Secret: 0
 --- !u!4 &816244234
 Transform:
   m_ObjectHideFlags: 0
@@ -755,6 +762,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1032794018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1032794019}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1032794019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032794018}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 442.61374, y: 363.1357, z: -6.155047}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1385796610
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,3 +938,4 @@ SceneRoots:
   - {fileID: 372158765}
   - {fileID: 1385796613}
   - {fileID: 816244234}
+  - {fileID: 1032794019}

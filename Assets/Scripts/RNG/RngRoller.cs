@@ -7,7 +7,13 @@ public class RngRoller : MonoBehaviour
     [Header("UI References")]
     public Button rollButton;     // Assign your button in the Inspector
     public TMP_Text resultText;       // Assign a UI Text element in the Inspector
-
+    public float Common;
+    public float Uncommon;
+    public float Rare;
+    public float Epic;
+    public float Legendary;
+    public float Mythic;
+    public float Secret;
     private void Start()
     {
         // Hook up the button click
@@ -26,21 +32,13 @@ public class RngRoller : MonoBehaviour
 
     private string GetRarity(int roll)
     {
-        // Example rarity tiers (you can adjust probabilities however you want)
-        switch (roll)
-        {
-            case int n when (n <= 6000):
-                return "Common";
-            case int n when (n <= 4000):
-                return "Uncommon";
-            case int n when (n <= 3900):
-                return "Rare";
-            case int n when (n <= 9990):
-                return "Epic";
-            case int n when (n <= 10000):
-                return "Legendary";
-            default:
-                return "Unknown"; // fallback
-        }
+        // Matches your provided rarity distribution
+        if (roll <= 3550) return "Common";              // 35.5%
+        else if (roll <= 6550) return "Uncommon";       // +30% = 65.5%
+        else if (roll <= 8550) return "Rare";           // +20% = 85.5%
+        else if (roll <= 9950) return "Epic";           // +14% = 99.5%
+        else if (roll <= 9990) return "Legendary";      // +0.4% = 99.9%
+        else if (roll <= 9999) return "Mythic";         // +0.09% = 99.99%
+        else return "???";                              // +0.01% = 100%
     }
 }
