@@ -4,8 +4,8 @@ public class XpOrbSpawner : MonoBehaviour
 {
     [Header("Orb Settings")]
     public GameObject xpOrbPrefab;    // The prefab of your orb
-    public int spawnCount = 15;        // How many orbs per wave
-    public float spawnInterval = 5f;  // Time (seconds) between waves
+    public int spawnCount = 1;        // How many orbs per wave
+    public float spawnInterval = 0.1f;  // Time (seconds) between waves
 
     [Header("Spawn Area")]
     public Vector2 areaSize = new Vector2(50f, 50f); // width x height box
