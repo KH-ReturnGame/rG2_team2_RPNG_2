@@ -1,44 +1,82 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class RngRoller : MonoBehaviour
+public class RngRollerConfigurable : MonoBehaviour
 {
     [Header("UI References")]
-    public Button rollButton;     // Assign your button in the Inspector
-    public TMP_Text resultText;       // Assign a UI Text element in the Inspector
-    public float Common;
-    public float Uncommon;
-    public float Rare;
-    public float Epic;
-    public float Legendary;
-    public float Mythic;
-    public float Secret;
+    public Button rollButton;
+    public TMP_Text resultText;
+
+    [Header("Rarity Chances (%)")]
+    [Range(0f, 100f)] public float Common = 35.5f;
+    [Range(0f, 100f)] public float Uncommon = 30f;
+    [Range(0f, 100f)] public float Rare = 20f;
+    [Range(0f, 100f)] public float Epic = 14f;
+    [Range(0f, 100f)] public float Legendary = 0.4f;
+    [Range(0f, 100f)] public float Mythic = 0.09f;
+    [Range(0f, 100f)] public float Secret = 0.01f;
+
     private void Start()
     {
-        // Hook up the button click
         if (rollButton != null)
+        {
             rollButton.onClick.AddListener(Roll);
+            Debug.Log("[RngRoller] Listener added.");
+        }
+        else
+        {
+            Debug.LogWarning("[RngRoller] rollButton is NULL!");
+        }
+
+        if (resultText == null)
+            Debug.LogWarning("[RngRoller] resultText is NULL!");
     }
 
-    private void Roll()
+    private void OnDisable()
     {
-        int roll = Random.Range(1, 10001); // Upper bound is exclusive, so 10001
+        if (rollButton != null)
+            rollButton.onClick.RemoveListener(Roll);
+    }
+
+    public void Roll()
+    {
+        float roll = Random.Range(0f, 100f); // roll between 0 and 100
         string rarity = GetRarity(roll);
 
         if (resultText != null)
-            resultText.text = $"Rolled {roll}: {rarity}";
+        {
+            string message = $"Rolled {roll:F2}% → {rarity}";
+            resultText.text = message;
+            Debug.Log($"[RngRoller] {message}");
+        }
     }
 
-    private string GetRarity(int roll)
+    private string GetRarity(float roll)
     {
-        // Matches your provided rarity distribution
-        if (roll <= 3550) return "Common";              // 35.5%
-        else if (roll <= 6550) return "Uncommon";       // +30% = 65.5%
-        else if (roll <= 8550) return "Rare";           // +20% = 85.5%
-        else if (roll <= 9950) return "Epic";           // +14% = 99.5%
-        else if (roll <= 9990) return "Legendary";      // +0.4% = 99.9%
-        else if (roll <= 9999) return "Mythic";         // +0.09% = 99.99%
-        else return "???";                              // +0.01% = 100%
+        float cumulative = 0f;
+
+        cumulative += Common;
+        if (roll <= cumulative) return "Common";
+
+        cumulative += Uncommon;
+        if (roll <= cumulative) return "Uncommon";
+
+        cumulative += Rare;
+        if (roll <= cumulative) return "Rare";
+
+        cumulative += Epic;
+        if (roll <= cumulative) return "Epic";
+
+        cumulative += Legendary;
+        if (roll <= cumulative) return "Legendary";
+
+        cumulative += Mythic;
+        if (roll <= cumulative) return "Mythic";
+
+        cumulative += Secret;
+        if (roll <= cumulative) return "???";
+
+        return "None (check chance values!)"; // fallback if total < 100
     }
 }
