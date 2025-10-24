@@ -2,30 +2,22 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    private Animator anim;
-
-    void Awake()
-    {
-        anim = GetComponent<Animator>(); // grab Animator on same GameObject
-    }
+    public Rigidbody2D playerRb;   // drag your player’s Rigidbody2D in Inspector
+    public Animator anim;          // assign in Inspector OR use GetComponent
 
     void Update()
     {
-        // Example: set bool
-        bool isMoving = Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow);
-        anim.SetBool("isMoving", true);
-
-        bool isDead = Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow);
-        anim.SetBool("isDead", true);
-
-        // Example: set float
-        float moveSpeed = Input.GetAxis("Horizontal");
-        anim.SetFloat("speed", Mathf.Abs(moveSpeed));
-
-        // Example: set trigger
-        if (Input.GetKeyDown(KeyCode.Space))
+        float speed = playerRb.linearVelocity.magnitude; // <-- fixed
+        if (speed > 0.01f)
         {
-            anim.SetTrigger("attackTrigger");
+            anim.SetBool("isMoving", true);
         }
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
+
+        // Debug
+        Debug.Log("Speed: " + speed + " | isMoving: " + anim.GetBool("isMoving"));
     }
 }
