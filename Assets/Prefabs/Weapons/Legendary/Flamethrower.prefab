@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7201138422033353365}
   - component: {fileID: 6737202476944771556}
+  - component: {fileID: -7983599455645686206}
   m_Layer: 0
   m_Name: Flamethrower
   m_TagString: Legendary
@@ -87,3 +88,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-7983599455645686206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9033908169639001865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 668e01bdef84ded44a071fec663173aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMelee: 0
+  isRanged: 0
+  isMisc: 0
+  damage: 0
+  range: 0
+  swingDuration: 0.3
+  cooldown: 0.5
+  endAngle: 120

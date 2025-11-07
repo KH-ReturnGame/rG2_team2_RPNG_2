@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6415725817663632221}
   - component: {fileID: 7698191869676390116}
+  - component: {fileID: 1015692609376206853}
   m_Layer: 0
   m_Name: Scythe
   m_TagString: Untagged
@@ -87,3 +88,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1015692609376206853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516488529666655333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 668e01bdef84ded44a071fec663173aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMelee: 0
+  isRanged: 0
+  isMisc: 0
+  damage: 45
+  range: 1.2
+  swingDuration: 0.3
+  cooldown: 0.2
+  endAngle: 120

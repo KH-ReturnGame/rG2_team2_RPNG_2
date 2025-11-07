@@ -10,6 +10,7 @@ TagManager:
   - Rare
   - Uncommon
   - Common
+  - Enemy
   layers:
   - Default
   - TransparentFX
