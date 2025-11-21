@@ -1,44 +1,52 @@
 using UnityEngine;
+using System.Collections;
 
 public class MeleeWeapon : MonoBehaviour
 {
     public bool isSwinging;
 
-    private float swingTimer = 0f;
-    private bool attackButtonHeld = false;
+    private float swingCooldownTimer = 0f;
 
     private WeaponStats currentStats;
     private Transform weaponHolder;
 
+    private Quaternion startRot;
+    private Quaternion endRot;
+
     void Start()
     {
-        weaponHolder = GameObject.Find("Player/MeleeWeapons").transform;
+        weaponHolder = transform; // script IS on MeleeWeapons
         UpdateStats();
     }
 
     void Update()
     {
-        swingTimer -= Time.deltaTime;
+        // cooldown countdown
+        if (swingCooldownTimer > 0f)
+            swingCooldownTimer -= Time.deltaTime;
 
-        // Refresh stats in case you switch weapons
         UpdateStats();
-
-        attackButtonHeld = Input.GetMouseButton(0);
 
         if (currentStats == null)
             return;
 
-        // Single-click mode
+        bool attackHeld = Input.GetMouseButton(0);
+        bool attackPressed = Input.GetMouseButtonDown(0);
+
+        // Can't swing while swinging OR cooling down
+        if (isSwinging || swingCooldownTimer > 0f)
+            return;
+
         if (!currentStats.allowHoldToSwing)
         {
-            if (Input.GetMouseButtonDown(0) && swingTimer <= 0f)
+            if (attackPressed)
                 StartSwing();
-            return;
         }
-
-        // Hold-to-swing mode
-        if (attackButtonHeld && swingTimer <= 0f)
-            StartSwing();
+        else
+        {
+            if (attackHeld)
+                StartSwing();
+        }
     }
 
     void UpdateStats()
@@ -55,15 +63,39 @@ public class MeleeWeapon : MonoBehaviour
 
     void StartSwing()
     {
+        if (isSwinging || currentStats == null)
+            return;
+
         isSwinging = true;
-        swingTimer = currentStats.cooldown;
+
+        startRot = Quaternion.Euler(0, 0, currentStats.startAngle);
+        endRot = Quaternion.Euler(0, 0, currentStats.endAngle);
 
         StartCoroutine(SwingRoutine());
     }
 
-    System.Collections.IEnumerator SwingRoutine()
+    IEnumerator SwingRoutine()
     {
-        yield return new WaitForSeconds(0.15f);
+        float t = 0f;
+
+        while (t < currentStats.swingTime)
+        {
+            t += Time.deltaTime;
+            float normalized = t / currentStats.swingTime;
+
+            // Rotate the parent object (MeleeWeapons)
+            transform.localRotation =
+                Quaternion.Slerp(startRot, endRot, normalized);
+
+            yield return null;
+        }
+
+        // Reset to start
+        transform.localRotation = startRot;
+
         isSwinging = false;
+
+        // ---- START COOLDOWN AFTER SWING ----
+        swingCooldownTimer = currentStats.cooldown;
     }
 }
