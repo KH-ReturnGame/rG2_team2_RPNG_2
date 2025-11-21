@@ -42,7 +42,7 @@ public class MeleeHitbox : MonoBehaviour
 
         if (currentStats != null)
         {
-            transform.localScale = new Vector3(2*(currentStats.range), 3*(currentStats.range), 1f);
+            transform.localScale = new Vector3(3*(currentStats.range), 3*(currentStats.range), 1f);
         }
     }
 

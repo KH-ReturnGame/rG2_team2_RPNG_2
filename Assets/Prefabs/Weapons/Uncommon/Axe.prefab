@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2008557281124628327}
   - component: {fileID: 2206338564762244023}
-  - component: {fileID: -8278328495598202978}
+  - component: {fileID: -5581048544006100015}
   m_Layer: 0
   m_Name: Axe
   m_TagString: Uncommon
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6641359661686560229}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.6, y: 0.36, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-8278328495598202978
+--- !u!114 &-5581048544006100015
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,9 +103,10 @@ MonoBehaviour:
   isMelee: 1
   isRanged: 0
   isMisc: 0
-  damage: 0
-  range: 0
-  swingDuration: 0.3
-  cooldown: 0.5
-  endAngle: 120
+  damage: 25
+  range: 1
+  cooldown: 0.1
+  swingTime: 0.15
+  startAngle: 0
+  endAngle: -100
   allowHoldToSwing: 1
