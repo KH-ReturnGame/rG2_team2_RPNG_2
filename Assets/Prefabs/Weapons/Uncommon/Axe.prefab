@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668e01bdef84ded44a071fec663173aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMelee: 0
+  isMelee: 1
   isRanged: 0
   isMisc: 0
   damage: 0
@@ -108,3 +108,4 @@ MonoBehaviour:
   swingDuration: 0.3
   cooldown: 0.5
   endAngle: 120
+  allowHoldToSwing: 1
