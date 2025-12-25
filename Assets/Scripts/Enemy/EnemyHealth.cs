@@ -2,39 +2,29 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [Header("Health")]
     public float maxHealth = 100f;
-    public float currentHealth;
-
-    private EnemyHealthBar healthBar;
+    private float currentHealth;
 
     void Start()
     {
         currentHealth = maxHealth;
-        healthBar = GetComponentInChildren<EnemyHealthBar>();
-
-        if (healthBar != null)
-            healthBar.SetHealth(currentHealth, maxHealth);
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float damage)
     {
-        currentHealth -= amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
-
-        if (healthBar != null)
-            healthBar.SetHealth(currentHealth, maxHealth);
+        currentHealth -= damage;
+        Debug.Log($"{gameObject.name} took {damage} damage. Remaining health: {currentHealth}");
 
         if (currentHealth <= 0f)
+        {
             Die();
+        }
     }
 
     void Die()
     {
-        // destroy healthbar if it's a child (optional cleanup)
-        if (healthBar != null)
-            Destroy(healthBar.gameObject);
-
+        Debug.Log($"{gameObject.name} died!");
+        // Optional: play animation, drop loot, etc.
         Destroy(gameObject);
     }
 }
