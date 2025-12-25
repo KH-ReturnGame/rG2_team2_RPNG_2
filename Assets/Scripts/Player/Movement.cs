@@ -2,27 +2,27 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public Vector2 InputVec;
+    [Header ("Settings")]
+    public Rigidbody2D Rigid;
     public float Speed = 0f;
-
-    Rigidbody2D Rigid;
-    SpriteRenderer sprite;
-    //Animator Anim;
+    [Header("Debugging")]
+    public Vector2 InputVec;
+    
+    
+    // SpriteRenderer sprite;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         Rigid = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
-        //Anim = GetComponent<Animator>();
+        // sprite = GetComponent<SpriteRenderer>();
     }
 
     void LateUpdate()
     {
-        //Anim.SetFloat("Speed", InputVec.magnitude);
-        if (InputVec.x != 0)
-        {
-            sprite.flipX = InputVec.x < 0;
-        }
+        // if (InputVec.x != 0)
+        // {
+        //     sprite.flipX = InputVec.x < 0;
+        // }
     }
 
     void Start()

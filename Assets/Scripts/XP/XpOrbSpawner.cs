@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class XpOrbSpawner : MonoBehaviour
 {
+    [Header("Toggle on/off")]
+    public bool isEnabled = false;
+
     [Header("Orb Settings")]
     public GameObject xpOrbPrefab;    // The prefab of your orb
     public int spawnCount = 1;        // How many orbs per wave
@@ -14,12 +17,15 @@ public class XpOrbSpawner : MonoBehaviour
 
     void Update()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= spawnInterval)
+        if (isEnabled == true)
         {
-            SpawnOrbs();
-            timer = 0f;
+            timer += Time.deltaTime;
+
+            if (timer >= spawnInterval)
+            {
+              SpawnOrbs();
+              timer = 0f;
+            }
         }
     }
 
