@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6875977729379686676}
   - component: {fileID: 423926572531422736}
   - component: {fileID: 166358802691660759}
+  - component: {fileID: -6005034428231648769}
   m_Layer: 0
   m_Name: Sword 1
   m_TagString: Uncommon
@@ -77,7 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -8287650901645349780, guid: a7c2cc704cf13a24bbd4a343b66cd0d6, type: 3}
+  m_Sprite: {fileID: -8287650901645349780, guid: a7c2cc704cf13a24bbd4a343b66cd0d6,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,3 +112,15 @@ MonoBehaviour:
   startAngle: 0
   endAngle: -100
   allowHoldToSwing: 1
+--- !u!114 &-6005034428231648769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454363904323128344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b7fdb5a4dfa59418297e5e87b349a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
