@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: 733346fb465048e46ad7124a3bcca080
+  productGUID: 709536ced05e0ef4baafb17d16ed1287
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -930,7 +930,7 @@ PlayerSettings:
   cloudProjectId: 8cee037f-097b-4d05-b181-6119219dc0b6
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
+  projectName: RPNG2
   organizationId: peter0222
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
