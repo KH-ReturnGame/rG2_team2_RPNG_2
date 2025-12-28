@@ -3205,6 +3205,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 896399857}
+    - targetCorrespondingSourceObject: {fileID: 3796610936796528237, guid: e0ee1c5ef0cc6be4d90502ad5b88dcdf,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1953684262}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 724069694572464889, guid: e0ee1c5ef0cc6be4d90502ad5b88dcdf,
         type: 3}
@@ -25810,6 +25814,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!224 &1953684262 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2185789406096670296, guid: 317cb0baaa44fcb42a6f6f6f7bb03353,
+    type: 3}
+  m_PrefabInstance: {fileID: 95442705}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1954639007
 GameObject:
   m_ObjectHideFlags: 0
